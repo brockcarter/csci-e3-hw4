@@ -79,4 +79,23 @@ window.onload = function () {
         }
     }
 
+
+
+    // 5.) PHONE # VALIDATION AND FORMATTING
+    var phoneNumber = document.getElementById("phone");
+
+
+    phoneNumber.onblur = function() {
+        var inputString = phoneNumber.value;
+        var processedString = inputString.match(/\d+/g);
+        var allNumberString = processedString.join();
+        if (allNumberString.length != 10) {
+            document.getElementById("phoneHint").style.display = "inline";
+        } else {
+            document.getElementById("phoneHint").style.display = "none";
+            var formattedNumber = allNumberString.slice(0,2) + "-" + allNumberString.slice(3,5) + "-" + allNumberString.slice(6,9);
+            phoneNumber.innerHTML = formattedNumber;
+        }
+    }    
+
 }
