@@ -1,8 +1,8 @@
 /* hw4.js */
 
-// 1.) PASSWORD CHECK
 window.onload = function () {
     "use strict";
+    // 1.) PASSWORD CHECK
     var pwd1 = document.getElementById("pwd1");
     var pwd2 = document.getElementById("pwd2");
 
@@ -21,5 +21,13 @@ window.onload = function () {
         } else {
             document.getElementById("pwd2Hint").style.display = "none";
         }
-    }  
+    }
+    
+    // 2.) BIO WORD COUNT
+    var bioBox = document.getElementById("bio");
+    var charsLeft = document.getElementById("charsLeft");
+
+    bioBox.oninput = function() {
+        charsLeft.innerHTML = 140 - bioBox.value.length;
+    }
 }
