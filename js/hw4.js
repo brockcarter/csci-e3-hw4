@@ -104,15 +104,7 @@ window.onload = function () {
     
 
     // ***EXTRA CREDIT***  6.) VERIFY EMAIL OR PHONE INFO ENTERED BEFORE SUBMIT
-    var submitBtn = document.getElementById("submitBtn");
-    
-    submitBtn.onsubmit = function  () {
-        if (document.getElementById("phone").value.length == 0 || document.getElementById("email").value.length == 0) {
-            document.getElementById("submitHint").style.display = "inline";
-            return false;
-        } else {
-            document.getElementById("submitHint").style.display = "none";
-            return true;
-        }
-    }      
+    // validateForm() is in the HTML file.  Could not get the validation to work with function placed in JS file.
+    // suspect it has something to do with getting a return true/false value from the fuction
+    // and that return value being accessible to the the onsubmit attribute of the form
 }

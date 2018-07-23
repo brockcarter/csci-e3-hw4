@@ -4,6 +4,19 @@
     <title>CSCI E-3 Homework #4</title>
     <link rel="stylesheet" href="css/cscie3.css">
     <script type="text/javascript" src="js/hw4.js"></script>
+    <!-- Could not get this function to run properly when in js file.  per documentation, I placed it here as a script and it seems to work.    -->
+    <script>
+    function validateForm() {
+        if (document.getElementById("phone").value.length == 0 && document.getElementById("email").value.length == 0) {
+            document.getElementById("submitHint").style.display = "inline";
+            return false;
+        } else {
+            document.getElementById("submitHint").style.display = "none";
+            return true;
+        }
+      }    
+    </script>
+
   </head>
   <body class="hw">
     <div class="container">
@@ -82,7 +95,7 @@
           if they failed to complete one of these fields.</li>
       </ol>
       <br>
-      <form autocomplete="off" action="" name="hw4Form"><br>
+      <form autocomplete="off" action="" name="hw4Form" onsubmit="return validateForm();"><br>
         <fieldset name="LoginInfo"><input size="30" placeholder="username"
             name="username" id="username" type="text"> <br>
           <br>
