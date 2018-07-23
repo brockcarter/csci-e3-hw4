@@ -83,19 +83,36 @@ window.onload = function () {
 
     // 5.) PHONE # VALIDATION AND FORMATTING
     var phoneNumber = document.getElementById("phone");
-
-
     phoneNumber.onblur = function() {
         var inputString = phoneNumber.value;
+        //did some googling to learn more about regular expressions.  here we look through the whole string (g for global) and pull 
+        //all digits (\d for digits) into an array of the contiguous digits found 
         var processedString = inputString.match(/\d+/g);
+        //use join to bring all the strings in the array into a sigle string
         var allNumberString = processedString.join();
-        if (allNumberString.length != 10) {
-            document.getElementById("phoneHint").style.display = "inline";
-        } else {
+        //check string length
+        if (allNumberString.length == 10) {
             document.getElementById("phoneHint").style.display = "none";
-            var formattedNumber = allNumberString.slice(0,2) + "-" + allNumberString.slice(3,5) + "-" + allNumberString.slice(6,9);
-            phoneNumber.innerHTML = formattedNumber;
+            //slice the string of numbers, and add dashes to get into the formatting requested
+            var formattedNumber = allNumberString.slice(0,3) + "-" + allNumberString.slice(3,6) + "-" + allNumberString.slice(6,10);
+            //set value of phoneNumber element
+            phoneNumber.value = formattedNumber;
+        } else {
+            document.getElementById("phoneHint").style.display = "inline";
         }
-    }    
+    }
+    
 
+    // ***EXTRA CREDIT***  6.) VERIFY EMAIL OR PHONE INFO ENTERED BEFORE SUBMIT
+    var submitBtn = document.getElementById("submitBtn");
+    
+    submitBtn.onsubmit = function  () {
+        if (document.getElementById("phone").value.length == 0 || document.getElementById("email").value.length == 0) {
+            document.getElementById("submitHint").style.display = "inline";
+            return false;
+        } else {
+            document.getElementById("submitHint").style.display = "none";
+            return true;
+        }
+    }      
 }
