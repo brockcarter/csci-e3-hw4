@@ -89,7 +89,8 @@ window.onload = function () {
         //all digits (\d for digits) into an array of the contiguous digits found 
         var processedString = inputString.match(/\d+/g);
         //use join to bring all the strings in the array into a sigle string
-        var allNumberString = processedString.join();
+        var allNumberString = processedString.join('');
+        console.log(allNumberString);
         //check string length
         if (allNumberString.length == 10) {
             document.getElementById("phoneHint").style.display = "none";
