@@ -15,7 +15,7 @@ window.onload = function () {
         }
     }
     //the two fields must match
-    pwd2.oninput = function () {
+    pwd2.oninput = function() {
         if (pwd1.value != pwd2.value) {
             document.getElementById("pwd2Hint").style.display = "inline";
         } else {
