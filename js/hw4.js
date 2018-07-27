@@ -108,13 +108,12 @@ window.onload = function () {
     var el = this.document.getElementById("submitBtn");
     el.addEventListener("click",validateForm,false);
     
-    function validateForm() {
+    function validateForm(evt) {
         if (document.getElementById("phone").value.length == 0 && document.getElementById("email").value.length == 0) {
             document.getElementById("submitHint").style.display = "inline";
-            return false;
+            evt.preventDefault();
         } else {
             document.getElementById("submitHint").style.display = "none";
-            return true;
         }
       }    
 
