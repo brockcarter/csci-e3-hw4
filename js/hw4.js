@@ -106,13 +106,14 @@ window.onload = function () {
 
     // ***EXTRA CREDIT***  6.) VERIFY EMAIL OR PHONE INFO ENTERED BEFORE SUBMIT
     var el = document.forms[0];
+    var phoneFormat = /^\d{3}-\d{3}-\d{4}$/gm
     el.addEventListener("submit",validateForm,false);
     
     function validateForm(evt) {
         if (document.getElementById("phone").value.length == 0 && document.getElementById("email").value.length == 0) {
             document.getElementById("submitHint").style.display = "inline";
             evt.preventDefault();
-        } else if (document.getElementById("phone").value.length != 12) {
+        } else if (phoneFormat.test(phoneNumber.value) != true) {
             evt.preventDefault();
         } else {
             document.getElementById("submitHint").style.display = "none";
