@@ -85,12 +85,12 @@ window.onload = function () {
     var phoneNumber = document.getElementById("phone");
     phoneNumber.onblur = function() {
         var inputString = phoneNumber.value;
-        //did some googling to learn more about regular expressions.  here we look through the whole string (g for global) and pull 
+        // here we look through the whole string (g for global) and pull 
         //all digits (\d for digits) into an array of the contiguous digits found 
         var processedString = inputString.match(/\d+/g);
         //use join to bring all the strings in the array into a sigle string
         var allNumberString = processedString.join('');
-        console.log(allNumberString);
+        //console.log(allNumberString);
         //check string length
         if (allNumberString.length == 10) {
             document.getElementById("phoneHint").style.display = "none";
